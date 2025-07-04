@@ -1,0 +1,17 @@
+#include<iostream>
+using namespace std;
+void countF(int i,int n){
+  if(i > n){
+    return;
+  }
+  countF(i+1,n);
+  cout << i << endl;
+}
+int main(){
+  int n;
+  cout <<"Enter n";
+  cin >> n;
+  countF(1 , n);
+
+  return 0;
+}

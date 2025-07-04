@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+int getSum(int i){
+  if(i==0){
+    return 0;
+  }
+  return i + getSum(i-1);
+}
+int main(){
+  int n;
+  cout << "Enter n";
+  cin >> n;
+  int sum = getSum(n);
+  cout << sum;
+  return 0;
+}

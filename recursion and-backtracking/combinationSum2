@@ -1,0 +1,37 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+void findCombination(int ind, vector<vector<int>> &ans, vector<int> &ds, int target, vector<int> &arr) {
+    if (target == 0) {
+        ans.push_back(ds);
+        return;
+    }
+    for (int i = ind; i < arr.size(); i++) {
+        if (i > ind && arr[i] == arr[i - 1]) continue;
+        if (arr[i] > target) break;
+        ds.push_back(arr[i]);
+        findCombination(i + 1, ans, ds, target - arr[i], arr);
+        ds.pop_back();
+    }
+}
+
+int main() {
+    vector<int> arr = {1, 1, 1, 2, 2};
+    sort(arr.begin(), arr.end());
+    int target = 4;
+    vector<vector<int>> ans;
+    vector<int> ds;
+    findCombination(0, ans, ds, target, arr);
+
+    // Optional: print result
+    for (auto comb : ans) {
+        for (int num : comb) {
+            cout << num << " ";
+        }
+        cout << endl;
+    }
+
+    return 0;
+}

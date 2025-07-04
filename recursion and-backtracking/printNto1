@@ -1,0 +1,16 @@
+#include<iostream>
+using namespace std;
+void countNtoOne(int i,int n){
+   if(i<=0){
+    return;
+   }
+   cout << i << endl;
+   countNtoOne(i-1,n);
+}
+int main(){
+  int n;
+  cout << "Enter the no";
+  cin >> n;
+  countNtoOne(n,n);
+  return 0;
+}

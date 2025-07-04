@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+void countN(int i,int N){
+  if(i>N){
+    return;
+  }
+  cout << i << endl;
+  countN(i+1,N);
+}
+int main(){
+  int n;
+  cin >> n;
+  countN(1,n);
+  return 0;
+}
